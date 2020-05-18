@@ -54,6 +54,12 @@ export const listAllImportantNotifications = /* GraphQL */ `
           org
           createdAt
           updatedAt
+          messages {
+            nextToken
+          }
+          users {
+            nextToken
+          }
         }
         author {
           cognitoId
@@ -79,9 +85,27 @@ export const getCoversationByRegion = /* GraphQL */ `
       createdAt
       updatedAt
       messages {
+        items {
+          id
+          authorNick
+          content
+          convoId
+          isSent
+          createdAt
+          updatedAt
+        }
         nextToken
       }
       users {
+        items {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
         nextToken
       }
     }
@@ -123,6 +147,12 @@ export const listConversation = /* GraphQL */ `
         org
         createdAt
         updatedAt
+        messages {
+          nextToken
+        }
+        users {
+          nextToken
+        }
       }
       nextToken
     }
@@ -139,9 +169,27 @@ export const getConversation = /* GraphQL */ `
       createdAt
       updatedAt
       messages {
+        items {
+          id
+          authorNick
+          content
+          convoId
+          isSent
+          createdAt
+          updatedAt
+        }
         nextToken
       }
       users {
+        items {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
         nextToken
       }
     }
@@ -172,6 +220,12 @@ export const listCoversationsByRegion = /* GraphQL */ `
         org
         createdAt
         updatedAt
+        messages {
+          nextToken
+        }
+        users {
+          nextToken
+        }
       }
       nextToken
     }
@@ -201,6 +255,12 @@ export const getMessage = /* GraphQL */ `
         org
         createdAt
         updatedAt
+        messages {
+          nextToken
+        }
+        users {
+          nextToken
+        }
       }
       author {
         cognitoId
@@ -223,8 +283,32 @@ export const listMessage = /* GraphQL */ `
         content
         convoId
         isSent
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         createdAt
         updatedAt
+        conversation {
+          id
+          name
+          type
+          region
+          org
+          createdAt
+          updatedAt
+        }
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }
@@ -523,10 +607,25 @@ export const listPropaganda = /* GraphQL */ `
         category
         title
         content
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         region
         org
         createdAt
         updatedAt
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }
@@ -554,10 +653,25 @@ export const listPropagandaByOrg = /* GraphQL */ `
         category
         title
         content
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         region
         org
         createdAt
         updatedAt
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }
@@ -585,10 +699,25 @@ export const listPropagandaSortedByTime = /* GraphQL */ `
         category
         title
         content
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         region
         org
         createdAt
         updatedAt
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }
@@ -620,6 +749,12 @@ export const getEvent = /* GraphQL */ `
         org
         createdAt
         updatedAt
+        messages {
+          nextToken
+        }
+        users {
+          nextToken
+        }
       }
       author {
         cognitoId
@@ -656,10 +791,34 @@ export const listEvent = /* GraphQL */ `
         title
         whenDate
         content
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         region
         org
         createdAt
         updatedAt
+        conversation {
+          id
+          name
+          type
+          region
+          org
+          createdAt
+          updatedAt
+        }
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }
@@ -688,10 +847,34 @@ export const listEventSortedByWhenDate = /* GraphQL */ `
         title
         whenDate
         content
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         region
         org
         createdAt
         updatedAt
+        conversation {
+          id
+          name
+          type
+          region
+          org
+          createdAt
+          updatedAt
+        }
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }
@@ -720,10 +903,34 @@ export const listEventSortedByUpdateTime = /* GraphQL */ `
         title
         whenDate
         content
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         region
         org
         createdAt
         updatedAt
+        conversation {
+          id
+          name
+          type
+          region
+          org
+          createdAt
+          updatedAt
+        }
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }
@@ -752,10 +959,34 @@ export const listEventByOrg = /* GraphQL */ `
         title
         whenDate
         content
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         region
         org
         createdAt
         updatedAt
+        conversation {
+          id
+          name
+          type
+          region
+          org
+          createdAt
+          updatedAt
+        }
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }
@@ -814,10 +1045,25 @@ export const listAnnouncement = /* GraphQL */ `
         title
         whenDate
         content
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         region
         org
         createdAt
         updatedAt
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }
@@ -846,42 +1092,25 @@ export const listAnnouncementByOrg = /* GraphQL */ `
         title
         whenDate
         content
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         region
         org
         createdAt
         updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const listAnnouncementSortedByWhenDate = /* GraphQL */ `
-  query ListAnnouncementSortedByWhenDate(
-    $region: String
-    $whenDate: ModelStringKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelAnnouncementFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listAnnouncementSortedByWhenDate(
-      region: $region
-      whenDate: $whenDate
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        authorNick
-        category
-        title
-        whenDate
-        content
-        region
-        org
-        createdAt
-        updatedAt
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }
@@ -910,10 +1139,25 @@ export const listAnnouncementSortedByUpdateTime = /* GraphQL */ `
         title
         whenDate
         content
+        resources {
+          name
+          bucket
+          region
+          key
+        }
         region
         org
         createdAt
         updatedAt
+        author {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
       }
       nextToken
     }

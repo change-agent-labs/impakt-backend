@@ -25,6 +25,12 @@ export const onCreateMessage = /* GraphQL */ `
         org
         createdAt
         updatedAt
+        messages {
+          nextToken
+        }
+        users {
+          nextToken
+        }
       }
       author {
         cognitoId
@@ -93,6 +99,12 @@ export const onEventChange = /* GraphQL */ `
         org
         createdAt
         updatedAt
+        messages {
+          nextToken
+        }
+        users {
+          nextToken
+        }
       }
       author {
         cognitoId
@@ -147,9 +159,27 @@ export const onConversationChange = /* GraphQL */ `
       createdAt
       updatedAt
       messages {
+        items {
+          id
+          authorNick
+          content
+          convoId
+          isSent
+          createdAt
+          updatedAt
+        }
         nextToken
       }
       users {
+        items {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
         nextToken
       }
     }

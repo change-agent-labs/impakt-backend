@@ -27,9 +27,27 @@ export const createConversation = /* GraphQL */ `
       createdAt
       updatedAt
       messages {
+        items {
+          id
+          authorNick
+          content
+          convoId
+          isSent
+          createdAt
+          updatedAt
+        }
         nextToken
       }
       users {
+        items {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
         nextToken
       }
     }
@@ -46,9 +64,27 @@ export const updateConversation = /* GraphQL */ `
       createdAt
       updatedAt
       messages {
+        items {
+          id
+          authorNick
+          content
+          convoId
+          isSent
+          createdAt
+          updatedAt
+        }
         nextToken
       }
       users {
+        items {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
         nextToken
       }
     }
@@ -65,9 +101,27 @@ export const deleteConversation = /* GraphQL */ `
       createdAt
       updatedAt
       messages {
+        items {
+          id
+          authorNick
+          content
+          convoId
+          isSent
+          createdAt
+          updatedAt
+        }
         nextToken
       }
       users {
+        items {
+          cognitoId
+          cognitoGroup
+          currentNick
+          pubKey
+          org
+          createdAt
+          updatedAt
+        }
         nextToken
       }
     }
@@ -97,6 +151,12 @@ export const createMessage = /* GraphQL */ `
         org
         createdAt
         updatedAt
+        messages {
+          nextToken
+        }
+        users {
+          nextToken
+        }
       }
       author {
         cognitoId
@@ -315,6 +375,12 @@ export const createEvent = /* GraphQL */ `
         org
         createdAt
         updatedAt
+        messages {
+          nextToken
+        }
+        users {
+          nextToken
+        }
       }
       author {
         cognitoId
@@ -354,6 +420,12 @@ export const updateEvent = /* GraphQL */ `
         org
         createdAt
         updatedAt
+        messages {
+          nextToken
+        }
+        users {
+          nextToken
+        }
       }
       author {
         cognitoId
@@ -393,6 +465,12 @@ export const deleteEvent = /* GraphQL */ `
         org
         createdAt
         updatedAt
+        messages {
+          nextToken
+        }
+        users {
+          nextToken
+        }
       }
       author {
         cognitoId
