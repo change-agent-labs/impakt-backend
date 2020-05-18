@@ -91,7 +91,7 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-change-agent-mst-204458-deployment",
+					"S3Bucket": "amplify-change-agent-master-100808-deployment",
 					"S3Key": "amplify-builds/changeAgentVerifyAuthChallengeResponse-3133507542654e416a30-build.zip"
 				}
 			}

@@ -73,6 +73,7 @@ export const onEventChange = /* GraphQL */ `
       authorNick
       category
       title
+      whenDate
       content
       resources {
         name
@@ -111,6 +112,7 @@ export const onAnnouncementChange = /* GraphQL */ `
       authorNick
       category
       title
+      whenDate
       content
       resources {
         name

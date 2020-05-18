@@ -295,6 +295,7 @@ export const createEvent = /* GraphQL */ `
       authorNick
       category
       title
+      whenDate
       content
       resources {
         name
@@ -333,6 +334,7 @@ export const updateEvent = /* GraphQL */ `
       authorNick
       category
       title
+      whenDate
       content
       resources {
         name
@@ -371,6 +373,7 @@ export const deleteEvent = /* GraphQL */ `
       authorNick
       category
       title
+      whenDate
       content
       resources {
         name
@@ -409,6 +412,7 @@ export const createAnnouncement = /* GraphQL */ `
       authorNick
       category
       title
+      whenDate
       content
       resources {
         name
@@ -438,6 +442,7 @@ export const updateAnnouncement = /* GraphQL */ `
       authorNick
       category
       title
+      whenDate
       content
       resources {
         name
@@ -467,6 +472,7 @@ export const deleteAnnouncement = /* GraphQL */ `
       authorNick
       category
       title
+      whenDate
       content
       resources {
         name

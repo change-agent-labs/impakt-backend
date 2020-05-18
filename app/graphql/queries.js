@@ -8,6 +8,7 @@ export const listAllImportantNotifications = /* GraphQL */ `
         authorNick
         category
         title
+        whenDate
         content
         resources {
           name
@@ -33,6 +34,7 @@ export const listAllImportantNotifications = /* GraphQL */ `
         authorNick
         category
         title
+        whenDate
         content
         resources {
           name
@@ -598,6 +600,7 @@ export const getEvent = /* GraphQL */ `
       authorNick
       category
       title
+      whenDate
       content
       resources {
         name
@@ -651,6 +654,71 @@ export const listEvent = /* GraphQL */ `
         authorNick
         category
         title
+        whenDate
+        content
+        region
+        org
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const listEventSortedByWhenDate = /* GraphQL */ `
+  query ListEventSortedByWhenDate(
+    $region: String
+    $whenDate: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelEventFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listEventSortedByWhenDate(
+      region: $region
+      whenDate: $whenDate
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        authorNick
+        category
+        title
+        whenDate
+        content
+        region
+        org
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const listEventSortedByUpdateTime = /* GraphQL */ `
+  query ListEventSortedByUpdateTime(
+    $region: String
+    $updatedAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelEventFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listEventSortedByUpdateTime(
+      region: $region
+      updatedAt: $updatedAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        authorNick
+        category
+        title
+        whenDate
         content
         region
         org
@@ -682,37 +750,7 @@ export const listEventByOrg = /* GraphQL */ `
         authorNick
         category
         title
-        content
-        region
-        org
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const listEventSortedByTime = /* GraphQL */ `
-  query ListEventSortedByTime(
-    $region: String
-    $updatedAt: ModelStringKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelEventFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listEventSortedByTime(
-      region: $region
-      updatedAt: $updatedAt
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        authorNick
-        category
-        title
+        whenDate
         content
         region
         org
@@ -729,6 +767,7 @@ export const getAnnouncement = /* GraphQL */ `
       authorNick
       category
       title
+      whenDate
       content
       resources {
         name
@@ -773,6 +812,7 @@ export const listAnnouncement = /* GraphQL */ `
         authorNick
         category
         title
+        whenDate
         content
         region
         org
@@ -804,6 +844,7 @@ export const listAnnouncementByOrg = /* GraphQL */ `
         authorNick
         category
         title
+        whenDate
         content
         region
         org
@@ -814,8 +855,40 @@ export const listAnnouncementByOrg = /* GraphQL */ `
     }
   }
 `;
-export const listAnnouncementSortedByTime = /* GraphQL */ `
-  query ListAnnouncementSortedByTime(
+export const listAnnouncementSortedByWhenDate = /* GraphQL */ `
+  query ListAnnouncementSortedByWhenDate(
+    $region: String
+    $whenDate: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelAnnouncementFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAnnouncementSortedByWhenDate(
+      region: $region
+      whenDate: $whenDate
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        authorNick
+        category
+        title
+        whenDate
+        content
+        region
+        org
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const listAnnouncementSortedByUpdateTime = /* GraphQL */ `
+  query ListAnnouncementSortedByUpdateTime(
     $region: String
     $updatedAt: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
@@ -823,7 +896,7 @@ export const listAnnouncementSortedByTime = /* GraphQL */ `
     $limit: Int
     $nextToken: String
   ) {
-    listAnnouncementSortedByTime(
+    listAnnouncementSortedByUpdateTime(
       region: $region
       updatedAt: $updatedAt
       sortDirection: $sortDirection
@@ -835,6 +908,7 @@ export const listAnnouncementSortedByTime = /* GraphQL */ `
         authorNick
         category
         title
+        whenDate
         content
         region
         org

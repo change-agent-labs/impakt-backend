@@ -47,7 +47,7 @@ type Event
   )
   @auth(rules: [{ allow: public }])
   @key(fields: ["region", "category", "title"])
-  @key(name: "WhenDate", fields: ["region", "whenDate"], queryField: "listEventSortedByWhenTime")
+  @key(name: "WhenDate", fields: ["region", "whenDate"], queryField: "listEventSortedByWhenDate")
   @key(
     name: "UpdateTime"
     fields: ["region", "updatedAt"]
