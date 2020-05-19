@@ -1,0 +1,64 @@
+{
+  "info": {
+    "_postman_id": "b4613e54-3bb2-4ea8-a12b-33db3b90634b",
+    "name": "dev-change-agent",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "listLocations",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ListLocation(\n    $org: String\n    $region: ModelStringKeyConditionInput\n    $filter: ModelLocationFilterInput\n    $limit: Int\n    $nextToken: String\n    $sortDirection: ModelSortDirection\n  ) {\n    listLocation(\n      org: $org\n      region: $region\n      filter: $filter\n      limit: $limit\n      nextToken: $nextToken\n      sortDirection: $sortDirection\n    ) {\n      items {\n        id\n        region\n        org\n        name\n        coordinatorName\n        coordinatorEmail\n        createdAt\n        updatedAt\n      }\n      nextToken\n    }\n  }",
+            "variables": "{\n\t\"org\": \"ZZ\",\n\t\"region\": {\n\t\t\"beginsWith\": \"ZZ::PL::WAW\"\n\t},\n\t\"filter\": {\n\t\t\"coordinatorName\": {\n\t\t\t\"contains\": \"Wazna\"\n\t\t}\n\t},\n\t\"limit\": 10,\n\t\"nextToken\": null,\n\t\"sortDirection\": \"DESC\"\n}"
+          }
+        },
+        "url": {
+          "raw": "https://ma3fzjopozfajlhnnpxqj4kfka.appsync-api.eu-west-1.amazonaws.com/graphql",
+          "protocol": "https",
+          "host": ["ma3fzjopozfajlhnnpxqj4kfka", "appsync-api", "eu-west-1", "amazonaws", "com"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "da2-extz3zc4gvc4lp3v7moguekdhu",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "x-api-key",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "c0118fe7-0d83-4a7f-aabe-d0e121ac9bf8",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "9067ee14-a685-4dd3-9603-209eee1a9001",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "protocolProfileBehavior": {}
+}

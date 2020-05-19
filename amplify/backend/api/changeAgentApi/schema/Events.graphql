@@ -47,16 +47,21 @@ type Event
   )
   @auth(rules: [{ allow: public }])
   @key(fields: ["region", "category", "title"])
-  #GSI
-  @key(name: "Org", fields: ["org", "category", "title"], queryField: "listEventByOrg")
-  #LSI
-  @key(name: "UpdateTime", fields: ["region", "updatedAt"], queryField: "listEventSortedByTime") {
+  @key(name: "WhenDate", fields: ["region", "whenDate"], queryField: "listEventSortedByWhenDate")
+  @key(
+    name: "UpdateTime"
+    fields: ["region", "updatedAt"]
+    queryField: "listEventSortedByUpdateTime"
+  )
+  @key(name: "Org", fields: ["org", "category", "title"], queryField: "listEventByOrg") {
   #real identity, used for auth and possible banning evil users
   author: User! @connection(keyField: "authorId")
   #ephemeric string used as a nick during creation - should be visible in FE
   authorNick: String!
   category: String!
   title: String!
+  # YYYY-MM-DDThh:mm:ss.sssZ
+  whenDate: AWSDateTime!
   # org_range: MY_ORG::WWA::WTF
   content: String!
   resources: [S3Resource]
@@ -80,13 +85,16 @@ type Announcement
   )
   @auth(rules: [{ allow: public }])
   @key(fields: ["region", "category", "title"])
-  #GSI
   @key(name: "Org", fields: ["org", "category", "title"], queryField: "listAnnouncementByOrg")
-  #LSI
+  @key(
+    name: "WhenDate"
+    fields: ["region", "whenDate"]
+    queryField: "listAnnouncementSortedByWhenDate"
+  )
   @key(
     name: "UpdateTime"
     fields: ["region", "updatedAt"]
-    queryField: "listAnnouncementSortedByTime"
+    queryField: "listAnnouncementSortedByUpdateTime"
   ) {
   #real identity, used for auth and possible banning evil users
   author: User! @connection(keyField: "authorId")
@@ -94,6 +102,8 @@ type Announcement
   authorNick: String!
   category: String!
   title: String!
+  # YYYY-MM-DDThh:mm:ss.sssZ
+  whenDate: AWSDateTime!
   # org_range: MY_ORG::WWA::WTF
   content: String!
   resources: [S3Resource]

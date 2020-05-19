@@ -33,5 +33,40 @@
         "changeAgent": {}
       }
     }
+  },
+  "master": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-change-agent-master-100808-authRole",
+      "UnauthRoleArn": "arn:aws:iam::557346154937:role/amplify-change-agent-master-100808-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::557346154937:role/amplify-change-agent-master-100808-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-change-agent-master-100808-deployment",
+      "UnauthRoleName": "amplify-change-agent-master-100808-unauthRole",
+      "StackName": "amplify-change-agent-master-100808",
+      "StackId": "arn:aws:cloudformation:eu-west-1:557346154937:stack/amplify-change-agent-master-100808/3766af20-9683-11ea-8263-062924358418",
+      "AmplifyAppId": "d321es52w6bjjg"
+    },
+    "categories": {
+      "auth": {
+        "changeAgent": {}
+      },
+      "function": {
+        "changeAgentCreateAuthChallenge": {
+          "envType": "dev"
+        },
+        "changeAgentDefineAuthChallenge": {},
+        "changeAgentPreSignup": {},
+        "changeAgentVerifyAuthChallengeResponse": {},
+        "changeAgentPostConfirmation": {
+          "GROUP": "Users"
+        },
+        "changeAgentS3Trigger": {},
+        "changeAgentDynamoTrigger": {},
+        "changeAgentEmailResolver": {},
+        "changeAgentDynamo": {},
+        "changeAgentApi": {},
+        "changeAgent": {}
+      }
+    }
   }
 }

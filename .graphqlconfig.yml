@@ -10,7 +10,7 @@ projects:
         codeGenTarget: javascript
         generatedFileName: ''
         docsFilePath: app/graphql
-        maxDepth: 2
+        maxDepth: 3
 extensions:
   amplify:
     version: 3

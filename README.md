@@ -12,7 +12,7 @@ Never, ever, in any circumstances call `amplify delete` :)
 
 - AWS Account with appropriate permissions to create the related resources
 - NodeJS with NPM
-- AWS CLI (`pip install awscli --upgrade --user`)
+- AWS CLI (`pip install awscli --upgrade --user` or `brew upgrade awscli`)
 - AWS Amplify CLI (configured for a region where AWS AppSync is available) (`npm install -g @aws-amplify/cli`) **NOTE** for mac users - call before: `brew install zeromq` `brew install pkgconfig`
 - Keys for multiple accounts configured according to documantation: `https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-multiple-profiles`
 - git-flow tool might be helpful (`npm install -g git-flow`)
